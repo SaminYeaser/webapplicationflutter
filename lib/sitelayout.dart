@@ -10,6 +10,7 @@ class Sitelayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: topNavigationBar(context, scaffoldKey),
+      drawer: Drawer(),
       body: Responsiveness(
         largeScreen: LargeScreen(),
         smallScreen: SmallScreen(),
