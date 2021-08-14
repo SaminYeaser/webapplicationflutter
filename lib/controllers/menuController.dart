@@ -18,10 +18,10 @@ class MenuController extends GetxController{
     }
   }
   isActive(String itemName){
-    activeItem.value == itemName;
+    return activeItem.value == itemName;
   }
   isHovering(String itemName){
-    hoverItem == itemName;
+    return hoverItem.value == itemName;
   }
 
   Widget returnIconFor(String itemName){
@@ -37,10 +37,7 @@ class MenuController extends GetxController{
     }
   }
   Widget _customIcon(IconData icon, String itemName){
-    if(isActive(itemName)){
-      return Icon(icon,color: isHovering(itemName) ? darke:lightGrey, );
-    }else{
-      return Container();
-    }
+    if(isActive(itemName)) return Icon(icon, size: 22, color: darke,);
+    return Icon(icon,color: isHovering(itemName) ? darke:lightGrey,);
   }
 }

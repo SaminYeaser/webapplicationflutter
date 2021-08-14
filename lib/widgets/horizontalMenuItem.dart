@@ -8,7 +8,7 @@ class HorizontalMenuItem extends StatelessWidget {
   final String? itemName;
   final Function()? onTap;
 
-  const HorizontalMenuItem({Key? key, this.itemName, this.onTap})
+  const HorizontalMenuItem({Key? key,  this.itemName,  this.onTap})
       : super(key: key);
 
   @override
@@ -21,8 +21,8 @@ class HorizontalMenuItem extends StatelessWidget {
             ? menuController.onHover(itemName!)
             : menuController.onHover('not hovering');
       },
-      child: Obx(() {
-        return Container(
+      child:Obx(()=>
+          Container(
           color: menuController.isHovering(itemName!)
               ? lightGrey.withOpacity(.1)
               : Colors.transparent,
@@ -41,19 +41,20 @@ class HorizontalMenuItem extends StatelessWidget {
                 maintainAnimation: true,
               ),
               SizedBox(
-                width: _width / 80,
+                width: _width / 48,
               ),
               Padding(
                 padding: EdgeInsets.all(16),
                 child: menuController.returnIconFor(itemName!),
               ),
-              if (menuController.isActive(itemName!))
+              if (!menuController.isActive(itemName!))
                 Flexible(
                     child: Customtext(
                   text: itemName,
                   color:
                       menuController.isHovering(itemName!) ? darke : lightGrey,
-                ))
+                ),
+                )
               else
                 Flexible(child: Customtext(
                   text: itemName,
@@ -63,8 +64,8 @@ class HorizontalMenuItem extends StatelessWidget {
                 ),)
             ],
           ),
-        );
-      }),
+        )
+      ),
     );
   }
 }

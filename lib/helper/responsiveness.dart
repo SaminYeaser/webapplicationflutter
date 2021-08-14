@@ -13,7 +13,7 @@ class Responsiveness extends StatelessWidget {
 
   const Responsiveness(
       {Key? key,
-      required this.mediumScreen,
+      this.mediumScreen,
       this.smallScreen,
       this.largeScreen,
       this.customScreen})
@@ -35,15 +35,16 @@ class Responsiveness extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints){
+    return LayoutBuilder(builder: (context, constraints) {
       double _width = constraints.maxWidth;
-      if(_width >= largeScreenSize){
+      if (_width >= largeScreenSize) {
         return Container(child: largeScreen);
-      }else if(_width<largeScreenSize && _width>= mediumScreenSize){
+      } else if (_width < largeScreenSize && _width >= mediumScreenSize) {
         return Container(child: mediumScreen ?? largeScreen);
-      }
-      else{
-        return Container(child: smallScreen ?? largeScreen ,);
+      } else {
+        return Container(
+          child: smallScreen ?? largeScreen,
+        );
       }
     });
   }
