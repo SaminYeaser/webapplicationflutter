@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webapplicationflutter/helper/localNavigator.dart';
 import 'package:webapplicationflutter/widgets/sideMenuItems.dart';
@@ -11,11 +12,13 @@ class LargeScreen extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-            child: SideMenu(),
+          child: SideMenu(),
         ),
         Expanded(
             flex: 5,
-            child: localNavigator())
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: localNavigator()))
       ],
     );
   }
