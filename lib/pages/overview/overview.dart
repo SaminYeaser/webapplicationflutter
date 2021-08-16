@@ -3,6 +3,8 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:webapplicationflutter/constants/controllers.dart';
 import 'package:webapplicationflutter/helper/responsiveness.dart';
 import 'package:webapplicationflutter/pages/overview/widgets/overviewCardLarge.dart';
+import 'package:webapplicationflutter/pages/overview/widgets/overviewCardMedium.dart';
+import 'package:webapplicationflutter/pages/overview/widgets/overviewCardSmall.dart';
 import 'package:webapplicationflutter/widgets/custom_texts.dart';
 
 class OverViewPage extends StatelessWidget {
@@ -27,8 +29,15 @@ class OverViewPage extends StatelessWidget {
           );
         }),
         Expanded(child: ListView(
+          shrinkWrap: true,
           children: [
-            OverViewLarge()
+            if(Responsiveness.isLargeScreen(context) || Responsiveness.isMediumScreen(context))
+              if(Responsiveness.isCustomScreen(context))
+                OverViewMedium()
+              else
+                OverViewLarge()
+            else
+              OverViewSmall()
           ],
         ))
       ],

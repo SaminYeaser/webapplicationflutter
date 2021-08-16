@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'infoCard.dart';
 
-class OverViewCardMedium extends StatelessWidget {
-  const OverViewCardMedium({Key? key}) : super(key: key);
+class OverViewMedium extends StatelessWidget {
+  const OverViewMedium({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +28,25 @@ class OverViewCardMedium extends StatelessWidget {
               onTap: (){},
               topColor: Colors.lightGreen,
             ),
-            Row(
-              children: [
-                InfoCard(
-                  title: 'Schedule Delivers',
-                  value: '5',
-                  onTap: (){},
-                  topColor: Colors.orangeAccent,
-                ),
-                SizedBox(
-                  width: _width/64,
-                ),
-                InfoCard(
-                  title: 'Cancel Orders',
-                  value: '3',
-                  onTap: (){},
-                  topColor: Colors.redAccent,
-                ),
-              ],
-            )
+          ],
+        ),
+        Row(
+          children: [
+            InfoCard(
+              title: 'Schedule Delivers',
+              value: '5',
+              onTap: (){},
+              topColor: Colors.orangeAccent,
+            ),
+            SizedBox(
+              width: _width/64,
+            ),
+            InfoCard(
+              title: 'Cancel Orders',
+              value: '3',
+              onTap: (){},
+              topColor: Colors.redAccent,
+            ),
           ],
         )
       ],

@@ -14,7 +14,7 @@ class InfoCardSmall extends StatelessWidget {
       this.title,
       this.value,
       this.topColor,
-      this.isActive,
+      this.isActive = false,
       this.onTap})
       : super(key: key);
 
@@ -38,7 +38,13 @@ class InfoCardSmall extends StatelessWidget {
                   size: 24,
                   weight: FontWeight.w300,
                   color: isActive! ? active: lightGrey,
-                )
+                ),
+                Customtext(
+                  text: value,
+                  size: 24,
+                  weight: FontWeight.bold,
+                  color: isActive! ? active: darke,
+                ),
               ],
             ),
           ),

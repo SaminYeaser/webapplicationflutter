@@ -10,6 +10,7 @@ class OverViewSmall extends StatelessWidget {
     return Container(
       height: 400,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           InfoCardSmall(
             title: 'Rides in Progress',
