@@ -5,7 +5,9 @@ import 'package:webapplicationflutter/helper/responsiveness.dart';
 import 'package:webapplicationflutter/pages/overview/widgets/overviewCardLarge.dart';
 import 'package:webapplicationflutter/pages/overview/widgets/overviewCardMedium.dart';
 import 'package:webapplicationflutter/pages/overview/widgets/overviewCardSmall.dart';
+import 'package:webapplicationflutter/widgets/RevenueLargeScreen.dart';
 import 'package:webapplicationflutter/widgets/custom_texts.dart';
+import 'package:webapplicationflutter/widgets/revenueSmallScreen.dart';
 
 class OverViewPage extends StatelessWidget {
   const OverViewPage({Key? key}) : super(key: key);
@@ -29,7 +31,6 @@ class OverViewPage extends StatelessWidget {
           );
         }),
         Expanded(child: ListView(
-          shrinkWrap: true,
           children: [
             if(Responsiveness.isLargeScreen(context) || Responsiveness.isMediumScreen(context))
               if(Responsiveness.isCustomScreen(context))
@@ -37,8 +38,15 @@ class OverViewPage extends StatelessWidget {
               else
                 OverViewLarge()
             else
-              OverViewSmall()
+              OverViewSmall(),
+        if(Responsiveness.isLargeScreen(context))
+          RevenueLarge()
+        else if(Responsiveness.isMediumScreen(context))
+          RevenueSectionSmall()
+        else
+          RevenueSectionSmall()
           ],
+
         ))
       ],
     );
