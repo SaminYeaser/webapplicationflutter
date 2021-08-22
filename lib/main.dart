@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:webapplicationflutter/controllers/menuController.dart';
+import 'package:webapplicationflutter/pages/404/error.dart';
+import 'package:webapplicationflutter/pages/authentication/authentication.dart';
+import 'package:webapplicationflutter/routing/routes.dart';
 
 import 'controllers/navigationController.dart';
 import 'sitelayout.dart';
@@ -18,6 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialRoute: AuthenticationPageRoute,
+      unknownRoute: GetPage(name: 'Not Found', page: ()=> PageNotFound(),
+      transition: Transition.fadeIn),
+      getPages: [
+        GetPage(name: rootRoute, page: ()=>Sitelayout()),
+        GetPage(name: AuthenticationPageRoute, page: ()=>AuthenticationPage()),
+      ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
@@ -29,7 +39,6 @@ class MyApp extends StatelessWidget {
           }),
           primaryColor: Colors.blue),
       title: 'DashBoard',
-      home: Sitelayout(),
     );
   }
 }

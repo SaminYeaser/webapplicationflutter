@@ -17,7 +17,7 @@ Route<dynamic> generateRoute(RouteSettings settings){
     case ClientPageRoute:
       return _getPageRoute(Clients());
     case AuthenticationPageRoute:
-      return _getPageRoute(Authentication());
+      return _getPageRoute(AuthenticationPage());
     default:
       return _getPageRoute(OverViewPage());
   }
